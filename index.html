@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cleat Matcher</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Cleat Matcher</h1>
+    <p>Find the best soccer cleats for your game!</p>
+  </header>
+
+  <div class="quiz">
+    <h2>What's your position?</h2>
+    <select id="position">
+      <option value="forward">Forward</option>
+      <option value="midfield">Midfield</option>
+      <option value="defender">Defender</option>
+      <option value="goalkeeper">Goalkeeper</option>
+    </select>
+
+    <h2>What type of surface do you play on?</h2>
+    <select id="surface">
+      <option value="grass">Grass</option>
+      <option value="turf">Turf</option>
+      <option value="indoor">Indoor</option>
+    </select>
+
+    <button onclick="findCleats()">Find My Cleats</button>
+  </div>
+
+  <div id="result"></div>
+
+  <footer>
+    <p>Created with ❤️ by Jesus Ramon</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
