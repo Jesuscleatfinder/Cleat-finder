@@ -1,72 +1,45 @@
-body {
-    font-family: Arial, sans-serif;
-    background: url('https://source.unsplash.com/1600x900/?soccer-field') no-repeat center center/cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: white;
-    text-align: center;
-}
+ document.getElementById("cleat-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    let size = document.getElementById("size").value;
+    let position = document.getElementById("position").value;
+    let brand = document.getElementById("brand").value;
+    let cleatList = document.getElementById("cleat-list");
 
-.container {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
-    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
-}
+    cleatList.innerHTML = "";
 
-h1 {
-    font-size: 24px;
-}
+    let cleats = [
+        { name: "Nike Mercurial", position: "forward", brand: "nike", img: "https://via.placeholder.com/150" },
+        { name: "Adidas Predator", position: "midfield", brand: "adidas", img: "https://via.placeholder.com/150" },
+        { name: "Puma Future", position: "defense", brand: "puma", img: "https://via.placeholder.com/150" },
+        { name: "Nike Tiempo", position: "goalkeeper", brand: "nike", img: "https://via.placeholder.com/150" }
+    ];
 
-.cleat-image {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
+    let matchedCleats = cleats.filter(cleat => 
+        (cleat.position === position) && (brand === "any" || cleat.brand === brand)
+    );
 
-.form-group {
-    margin: 10px 0;
-}
+    if (matchedCleats.length === 0) {
+        cleatList.innerHTML = "<p>No cleats found for your selection.</p>";
+    } else {
+        matchedCleats.forEach(cleat => {
+            let cleatDiv = document.createElement("div");
+            cleatDiv.classList.add("cleat-item");
+            cleatDiv.innerHTML = `<img src="${cleat.img}" alt="${cleat.name}">
+                                  <h3>${cleat.name}</h3>
+                                  <p>Size: ${size}</p>`;
+            cleatList.appendChild(cleatDiv);
+        });
+    }
+});
 
-label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-select, button {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    margin-bottom: 10px;
-}
-
-button {
-    background: #ffcc00;
-    color: black;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    background: #ff9900;
-}
-
-#cleatResult {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-    display: none;
-    padding: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
-    border-radius: 5px;
-}
+document.getElementById("subscribe").addEventListener("click", function() {
+    let email = document.getElementById("email").value;
+    if (email) {
+        alert("You're now subscribed for exclusive cleat updates!");
+        localStorage.setItem("subscribedEmail", email);
+        document.getElementById("email").value = "";
+    } else {
+        alert("Please enter a valid email.");
+    }
+});
