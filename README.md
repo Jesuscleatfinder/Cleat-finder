@@ -1,4 +1,4 @@
-# Cleat Matcher
+# Cleat finder
 
 ## About
 Cleat Matcher helps soccer players find the best cleats based on their position and the type of surface they play on. Whether you're a forward on grass or a defender on turf, this website will recommend the perfect cleats for your game!
