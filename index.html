@@ -3,38 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cleat Matcher</title>
+    <title>Pro Cleat Finder</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Find Your Perfect Soccer Cleats ⚽</h1>
-        <img src="cleat.jpg" alt="Soccer Cleat" class="cleat-image">
-        
-        <div class="form-group">
-            <label for="position">Select Your Position:</label>
-            <select id="position">
-                <option value="Forward">Forward</option>
-                <option value="Midfield">Midfield</option>
-                <option value="Defender">Defender</option>
-                <option value="Goalkeeper">Goalkeeper</option>
+
+    <header>
+        <h1>Find Your Perfect Soccer Cleats</h1>
+        <p>Answer a few questions to get the best recommendations for your play style!</p>
+    </header>
+
+    <section class="form-section">
+        <form id="cleat-form">
+            <label for="size">Your Shoe Size:</label>
+            <input type="number" id="size" name="size" required>
+
+            <label for="position">Your Playing Position:</label>
+            <select id="position" name="position">
+                <option value="forward">Forward</option>
+                <option value="midfield">Midfielder</option>
+                <option value="defense">Defender</option>
+                <option value="goalkeeper">Goalkeeper</option>
             </select>
-        </div>
 
-        <div class="form-group">
-            <label for="surface">Select Playing Surface:</label>
-            <select id="surface">
-                <option value="Grass">Grass</option>
-                <option value="Turf">Turf</option>
-                <option value="Indoor">Indoor</option>
+            <label for="brand">Preferred Brand:</label>
+            <select id="brand" name="brand">
+                <option value="any">Any</option>
+                <option value="nike">Nike</option>
+                <option value="adidas">Adidas</option>
+                <option value="puma">Puma</option>
+                <option value="other">Other</option>
             </select>
-        </div>
 
-        <button id="findCleats">Find My Cleats</button>
+            <button type="submit">Find My Cleats</button>
+        </form>
+    </section>
 
-        <div id="cleatResult" class="hidden"></div>
-    </div>
+    <section id="cleat-results">
+        <h2>Recommended Cleats</h2>
+        <div id="cleat-list"></div>
+    </section>
+
+    <section class="email-signup">
+        <h2>Subscribe for Exclusive Cleat Drops</h2>
+        <input type="email" id="email" placeholder="Enter your email">
+        <button id="subscribe">Subscribe</button>
+    </section>
 
     <script src="script.js"></script>
+
 </body>
 </html>
